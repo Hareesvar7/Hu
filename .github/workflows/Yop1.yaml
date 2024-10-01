@@ -21,8 +21,14 @@ jobs:
         docker build -t my-backend:1.0 ./backend
         docker build -t my-frontend:1.0 ./frontend
 
+    # Step 2: Ensure Minikube is running
+    - name: Start Minikube
+      run: |
+        minikube start --driver=docker
+
     - name: Deploy to Kubernetes
       run: |
+        
         kubectl apply -f backend-deployment.yaml --validate=false
         kubectl apply -f backend-service.yaml --validate=false
         kubectl apply -f frontend-deployment.yaml --validate=false
