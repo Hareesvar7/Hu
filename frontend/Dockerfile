@@ -1,5 +1,8 @@
-# Use an official Node.js image
 FROM node:14
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["npm", "start"]
+EXPOSE 3000
 
-# Set the working directory inside the container
 
