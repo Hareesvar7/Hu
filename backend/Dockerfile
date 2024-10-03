@@ -1,4 +1,9 @@
-# Use an official Node.js image from Docker Hub
 FROM node:14
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["npm", "start"]
+EXPOSE 5000
+
 
 
